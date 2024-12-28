@@ -1,0 +1,6 @@
+@EmpowerTrack.Presentation_HostAddress = http://localhost:5180
+
+GET {{EmpowerTrack.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
