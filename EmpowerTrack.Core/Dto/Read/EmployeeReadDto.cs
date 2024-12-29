@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmpowerTrack.Core.Dto
+namespace EmpowerTrack.Core.Dto.Read
 {
-    public class EmployeeDto
+    public class EmployeeReadDto
     {
         public int EmployeeId { get; set; }
 
@@ -16,7 +16,9 @@ namespace EmpowerTrack.Core.Dto
 
         public int EmployeeRoleId { get; set; }
 
-        public RoleDto? Role { get; set; }
-        
+        public RoleReadDto? Role { get; set; }
+
+        public UserReadDto? User { get; set; }
+
     }
 }

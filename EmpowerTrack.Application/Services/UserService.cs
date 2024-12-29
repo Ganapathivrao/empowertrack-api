@@ -2,15 +2,11 @@
 using EmpowerTrack.Application.Response;
 using EmpowerTrack.Application.ServiceInterfaces;
 using EmpowerTrack.Core.Dto;
+using EmpowerTrack.Core.Dto.Read;
 using EmpowerTrack.Core.Entities;
 using EmpowerTrack.Core.Enums;
 using EmpowerTrack.Core.RepoInterfaces;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EmpowerTrack.Application.Services
 {
@@ -29,7 +25,7 @@ namespace EmpowerTrack.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<ApiResponse<bool>> ValidateCredentialsAsync(UserDto user)
+        public async Task<ApiResponse<bool>> ValidateCredentialsAsync(UserReadDto user)
         {
             ValidationObjDto valObj = new ValidationObjDto();
             var userEtity = _mapper.Map<UserEntity>(user);
@@ -43,7 +39,7 @@ namespace EmpowerTrack.Application.Services
                     Data = false
                 };
             }
-            var userRead = _mapper.Map<UserDto>(userDto);
+            var userRead = _mapper.Map<UserReadDto>(userDto);
 
             bool isPasswordValid = BCrypt.Net.BCrypt.Verify(user.UserPasswordHash, userRead.UserPasswordHash);
 
