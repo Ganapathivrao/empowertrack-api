@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using EmpowerTrack.Core.Dto;
+using EmpowerTrack.Core.Dto.Read;
 using EmpowerTrack.Core.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,25 +13,25 @@ namespace EmpowerTrack.Application.Mapper
     {
         public GlobalMappingProfile()
         {
-            CreateMap<UserEntity, UserDto>().ForMember(dest => dest.Employee, opt => opt.MapFrom(src => src.EmployeeDb));
+            CreateMap<UserEntity, UserReadDto>().ForMember(dest => dest.Employee, opt => opt.MapFrom(src => src.EmployeeDb));
 
-            CreateMap<UserDto, UserEntity>();
+            CreateMap<UserReadDto, UserEntity>();
 
-            CreateMap<MainModuleEntity, MainModDto>().ForMember(dest => dest.Forms, opt => opt.MapFrom(src => src.Forms));
+            CreateMap<MainModuleEntity, MainModReadDto>().ForMember(dest => dest.Forms, opt => opt.MapFrom(src => src.Forms));
 
-            CreateMap<MainModDto, MainModuleEntity>();
+            CreateMap<MainModReadDto, MainModuleEntity>();
 
-            CreateMap<FormEntity, FormDto>();
+            CreateMap<FormEntity, FormReadDto>();
 
-            CreateMap<FormDto, FormEntity>();
+            CreateMap<FormReadDto, FormEntity>();
 
-            CreateMap<EmployeeEntity, EmployeeDto>().ForMember(dest=>dest.Role,opt=> opt.MapFrom(src => src.RoleDb));
+            CreateMap<EmployeeEntity, EmployeeReadDto>().ForMember(dest=>dest.Role,opt=> opt.MapFrom(src => src.RoleDb));
 
-            CreateMap<EmployeeDto, EmployeeEntity>();
+            CreateMap<EmployeeReadDto, EmployeeEntity>();
 
-            CreateMap<RoleEntity,RoleDto>();
+            CreateMap<RoleEntity,RoleReadDto>();
 
-            CreateMap<RoleDto, RoleEntity>();
+            CreateMap<RoleReadDto, RoleEntity>();
 
 
         }

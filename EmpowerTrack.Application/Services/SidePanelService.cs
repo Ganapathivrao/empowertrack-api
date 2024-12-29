@@ -2,6 +2,7 @@
 using EmpowerTrack.Application.Response;
 using EmpowerTrack.Application.ServiceInterfaces;
 using EmpowerTrack.Core.Dto;
+using EmpowerTrack.Core.Dto.Read;
 using EmpowerTrack.Core.Enums;
 using EmpowerTrack.Core.RepoInterfaces;
 
@@ -17,12 +18,12 @@ namespace EmpowerTrack.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<ApiResponse<ICollection<MainModDto>>> GetModuleDetailsAsync()
+        public async Task<ApiResponse<ICollection<MainModReadDto>>> GetModuleDetailsAsync()
         {
             var mainModuleEntities = await _repo.GetModuleDetailsAsync();
             if(!mainModuleEntities.Any())
             {
-                return new ApiResponse<ICollection<MainModDto>>
+                return new ApiResponse<ICollection<MainModReadDto>>
                 {
                     Status = (int)ResponseStatus.Failure,
                     Message = ResponseMessage.DataFailedToRetrieve.GetDescription(),
@@ -30,9 +31,9 @@ namespace EmpowerTrack.Application.Services
                 };
             }
 
-            var mainModuleDto= _mapper.Map<ICollection<MainModDto>>(mainModuleEntities);
+            var mainModuleDto= _mapper.Map<ICollection<MainModReadDto>>(mainModuleEntities);
 
-            return new ApiResponse<ICollection<MainModDto>>
+            return new ApiResponse<ICollection<MainModReadDto>>
             {
                 Status = (int)ResponseStatus.Success,
                 Message = ResponseMessage.DataRetrievedSuccessfully.GetDescription(),

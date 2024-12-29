@@ -1,5 +1,5 @@
 ﻿using EmpowerTrack.Application.ServiceInterfaces;
-using EmpowerTrack.Core.Dto;
+using EmpowerTrack.Core.Dto.Read;
 using EmpowerTrack.Core.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -26,7 +26,7 @@ namespace EmpowerTrack.Application.Services
             _audience = configuration["Jwt:Audience"];
         }
 
-        public async Task<string> GetJwtToken(UserDto user)
+        public async Task<string> GetJwtToken(UserReadDto user)
         {
 
                 var claims = new[]

@@ -1,5 +1,5 @@
 ﻿using EmpowerTrack.Application.Response;
-using EmpowerTrack.Core.Dto;
+using EmpowerTrack.Core.Dto.Read;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,6 @@ namespace EmpowerTrack.Application.ServiceInterfaces
 {
     public interface IUserService
     {
-        Task<ApiResponse<bool>> ValidateCredentialsAsync(UserDto user);
+        Task<ApiResponse<bool>> ValidateCredentialsAsync(UserReadDto user);
     }
 }

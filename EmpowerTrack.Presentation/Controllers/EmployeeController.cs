@@ -1,5 +1,5 @@
 ﻿using EmpowerTrack.Application.ServiceInterfaces;
-using EmpowerTrack.Core.Dto;
+using EmpowerTrack.Core.Dto.Read;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,9 +15,9 @@ namespace EmpowerTrack.Presentation.Controllers
             _employeeService = employeeService;
         }
 
-        [Route("employee-create")]
+        [Route("save-employee-details")]
         [HttpPost]
-        public async Task<IActionResult> EmployeeCreate([FromBody] EmployeeDto employeeDto)
+        public async Task<IActionResult> SaveEmployeeDetails([FromBody] EmployeeReadDto employeeDto)
         {
             return Ok("");
         }

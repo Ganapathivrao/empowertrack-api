@@ -1,4 +1,4 @@
-﻿using EmpowerTrack.Core.Dto;
+﻿using EmpowerTrack.Core.Dto.Read;
 using EmpowerTrack.Core.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,6 +10,6 @@ namespace EmpowerTrack.Application.ServiceInterfaces
 {
     public interface IJwtService
     {
-        Task<string> GetJwtToken(UserDto user);
+        Task<string> GetJwtToken(UserReadDto user);
     }
 }
